@@ -5,10 +5,13 @@ import Navbar from '@/Components/Navbar/Navbar'
 import Hero from '@/Components/Homepage/Hero/Hero'
 import Services from '@/Components/Homepage/Design/Services'
 import Footer from '@/Components/Homepage/Footer/Footer'
+import Testimonials from '@/Components/Homepage/Testimonials/testimonials'
+import Accordian from '@/Components/Homepage/Accordian/Accordian'
+
 
 const inter = Inter({ subsets: ['latin'] })
 
-export default function Home() {
+function Home({signOut,user}) {
   return (
     <>
       <Head>
@@ -19,10 +22,15 @@ export default function Home() {
       </Head>
       <main>
         <Navbar/>
+
         <Hero/>
         <Services/>
+        <Testimonials/>
+        <Accordian/>
         <Footer/>
       </main>
     </>
   )
 }
+
+export default Home

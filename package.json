@@ -9,9 +9,11 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@aws-amplify/ui-react": "^4.4.0",
     "@chakra-ui/react": "^2.5.1",
     "@emotion/react": "^11.10.6",
     "@emotion/styled": "^11.10.6",
+    "aws-amplify": "^5.0.20",
     "eslint": "8.35.0",
     "eslint-config-next": "13.2.3",
     "framer-motion": "^10.2.3",

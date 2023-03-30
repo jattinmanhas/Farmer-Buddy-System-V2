@@ -31,96 +31,96 @@ const Navbar = () => {
   const { colorMode, toggleColorMode } = useColorMode();
 
   return (
-    <Box>
-      <Flex
-        bg={useColorModeValue("white", "gray.700")}
-        color={useColorModeValue("gray.600", "white")}
-        minH={"60px"}
-        py={{ base: 2 }}
-        px={{ base: 4 }}
-        borderBottom={1}
-        borderStyle={"solid"}
-        borderColor={useColorModeValue("gray.200", "gray.900")}
-        align={"center"}
-      >
+    <div className="sticky top-0 z-50">
+      <Box bg={useColorModeValue("white", "gray.700")}>
         <Flex
-          flex={{ base: 1, md: "auto" }}
-          ml={{ base: -2 }}
-          display={{ base: "flex", md: "none" }}
+          bg={useColorModeValue("white", "gray.700")}
+          color={useColorModeValue("gray.600", "white")}
+          minH={"60px"}
+          py={{ base: 2 }}
+          px={{ base: 4 }}
+          borderBottom={1}
+          borderStyle={"solid"}
+          borderColor={useColorModeValue("gray.200", "gray.900")}
+          align={"center"}
         >
-          <IconButton
-            onClick={onToggle}
-            icon={
-              isOpen ? (
-                <IoMdCloseCircle w={3} h={3} />
-              ) : (
-                <GiHamburgerMenu w={5} h={5} />
-              )
-            }
-            variant={"ghost"}
-            aria-label={"Toggle Navigation"}
-          />
-        </Flex>
-        <div>
-          <Link href="/">
-            <Flex
-              textAlign={useBreakpointValue({ base: "center", md: "left" })}
-              marginLeft={"20"}
-              fontFamily={"heading"}
-              color={useColorModeValue("gray.900", "white")}
-              fontSize={"xl"}
-              fontWeight={"bold"}
+          <Flex
+            flex={{ base: 1, md: "auto" }}
+            ml={{ base: -2 }}
+            display={{ base: "flex", md: "none" }}
+          >
+            <IconButton
+              onClick={onToggle}
+              icon={
+                isOpen ? (
+                  <IoMdCloseCircle w={3} h={3} />
+                ) : (
+                  <GiHamburgerMenu w={5} h={5} />
+                )
+              }
+              variant={"ghost"}
+              aria-label={"Toggle Navigation"}
+            />
+          </Flex>
+          <div>
+            <Link href="/">
+              <Flex
+                textAlign={useBreakpointValue({ base: "center", md: "left" })}
+                marginLeft={"20"}
+                fontFamily={"heading"}
+                color={useColorModeValue("gray.900", "white")}
+                fontSize={"xl"}
+                fontWeight={"bold"}
+                _hover={{
+                  transition: "all 0.3 ease-in-out",
+                  transform: "scale(1.01)",
+                }}
+              >
+                <Logo />
+              </Flex>
+            </Link>
+          </div>
+
+          <Flex flex={{ base: 1 }} justify={{ base: "center", md: "center" }}>
+            <Flex display={{ base: "none", md: "flex" }} ml={10}>
+              <DesktopNav />
+            </Flex>
+          </Flex>
+
+          <Flex marginLeft={10}>
+            <Button onClick={toggleColorMode} mr={10}>
+              {colorMode === "light" ? <FaMoon /> : <BsSun />}
+            </Button>
+          </Flex>
+
+          <Stack
+            flex={{ base: 1, md: 0 }}
+            justify={"flex-end"}
+            direction={"row"}
+            spacing={6}
+          >
+            <Button
+              as={"a"}
+              display={{ base: "none", md: "inline-flex" }}
+              fontSize={"sm"}
+              fontWeight={600}
+              color={"white"}
+              bg={"green.400"}
+              href={"/signup"}
               _hover={{
-                transition: "all 0.3 ease-in-out",
-                transform: "scale(1.01)",
+                bg: "green.600",
               }}
             >
-              <Logo/>
-            </Flex>
-          </Link>
-        </div>
-
-        <Flex flex={{ base: 1 }} justify={{ base: "center", md: "center" }}>
-          <Flex display={{ base: "none", md: "flex" }} ml={10}>
-            <DesktopNav />
-          </Flex>
+              Sign Up
+            </Button>
+          </Stack>
         </Flex>
 
-        <Flex marginLeft={10}>
-          <Button onClick={toggleColorMode} mr={10}>
-            {colorMode === "light" ? <FaMoon /> : <BsSun />}
-          </Button>
-          
-        </Flex>
-
-        <Stack
-          flex={{ base: 1, md: 0 }}
-          justify={"flex-end"}
-          direction={"row"}
-          spacing={6}
-        >
-
-          <Button
-            as={"a"}
-            display={{ base: "none", md: "inline-flex" }}
-            fontSize={"sm"}
-            fontWeight={600}
-            color={"white"}
-            bg={"green.400"}
-            href={"/signup"}
-            _hover={{
-              bg: "green.600",
-            }}
-          >
-            Sign Up
-          </Button>
-        </Stack>
-      </Flex>
-
-      <Collapse in={isOpen} animateOpacity>
-        <MobileNav />
-      </Collapse>
-    </Box>
+        <Collapse in={isOpen} animateOpacity>
+          <MobileNav />
+        </Collapse>
+      </Box>
+    </div>
   );
 };
 
@@ -222,20 +222,20 @@ const MobileNav = () => {
       {NAV_ITEMS.map((navItem) => (
         <MobileNavItem key={navItem.label} {...navItem} />
       ))}
-          <Button
-            as={"a"}
-            display={{ base: "flex", md: "inline-flex" }}
-            fontSize={"sm"}
-            fontWeight={600}
-            color={"white"}
-            bg={"green.400"}
-            href={"/signup"}
-            _hover={{
-              bg: "green.600",
-            }}
-          >
-            Sign Up
-          </Button>
+      <Button
+        as={"a"}
+        display={{ base: "flex", md: "inline-flex" }}
+        fontSize={"sm"}
+        fontWeight={600}
+        color={"white"}
+        bg={"green.400"}
+        href={"/signup"}
+        _hover={{
+          bg: "green.600",
+        }}
+      >
+        Sign Up
+      </Button>
     </Stack>
   );
 };
@@ -307,9 +307,10 @@ const Logo = (props) => {
           fill="#2F855A"
         />
       </svg>
-      <Text marginLeft={"-24"} fontWeight={"bold"} fontSize="xl">Farmer Buddy</Text>
+      <Text marginLeft={"-24"} fontWeight={"bold"} fontSize="xl">
+        Farmer Buddy
+      </Text>
     </Flex>
-
   );
 };
 
