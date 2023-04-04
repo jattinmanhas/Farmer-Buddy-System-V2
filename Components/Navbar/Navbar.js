@@ -93,6 +93,8 @@ const Navbar = () => {
             </Button>
           </Flex>
 
+          <div>
+            <Link href={"/signup"}>
           <Stack
             flex={{ base: 1, md: 0 }}
             justify={"flex-end"}
@@ -100,13 +102,13 @@ const Navbar = () => {
             spacing={6}
           >
             <Button
-              as={"a"}
+              // as={"a"}
               display={{ base: "none", md: "inline-flex" }}
               fontSize={"sm"}
               fontWeight={600}
               color={"white"}
               bg={"green.400"}
-              href={"/signup"}
+              // href={"/signup"}
               _hover={{
                 bg: "green.600",
               }}
@@ -114,8 +116,9 @@ const Navbar = () => {
               Sign Up
             </Button>
           </Stack>
+          </Link>
+          </div>
         </Flex>
-
         <Collapse in={isOpen} animateOpacity>
           <MobileNav />
         </Collapse>
@@ -222,6 +225,7 @@ const MobileNav = () => {
       {NAV_ITEMS.map((navItem) => (
         <MobileNavItem key={navItem.label} {...navItem} />
       ))}
+
       <Button
         as={"a"}
         display={{ base: "flex", md: "inline-flex" }}

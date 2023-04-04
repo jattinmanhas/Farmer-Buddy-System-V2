@@ -22,7 +22,6 @@ function Home({signOut,user}) {
       </Head>
       <main>
         <Navbar/>
-
         <Hero/>
         <Services/>
         <Testimonials/>

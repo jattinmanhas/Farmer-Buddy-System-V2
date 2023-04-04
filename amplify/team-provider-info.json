@@ -11,5 +11,23 @@
       "StackId": "arn:aws:cloudformation:ap-northeast-1:077669567529:stack/amplify-farmerbuddysystem-staging-184421/e5d7ebd0-c5bc-11ed-b27d-0a088792f14d",
       "AmplifyAppId": "d2bm2ogy70eti4"
     }
+  },
+  "farmernext": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-farmerbuddysystem-farmernext-231635-authRole",
+      "UnauthRoleArn": "arn:aws:iam::077669567529:role/amplify-farmerbuddysystem-farmernext-231635-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::077669567529:role/amplify-farmerbuddysystem-farmernext-231635-authRole",
+      "Region": "ap-south-1",
+      "DeploymentBucketName": "amplify-farmerbuddysystem-farmernext-231635-deployment",
+      "UnauthRoleName": "amplify-farmerbuddysystem-farmernext-231635-unauthRole",
+      "StackName": "amplify-farmerbuddysystem-farmernext-231635",
+      "StackId": "arn:aws:cloudformation:ap-south-1:077669567529:stack/amplify-farmerbuddysystem-farmernext-231635/a6145040-d310-11ed-a559-0a8c1cd4e120",
+      "AmplifyAppId": "d11hrdj8k4ql6e"
+    },
+    "categories": {
+      "auth": {
+        "farmerbuddysystemfafd769f": {}
+      }
+    }
   }
 }
