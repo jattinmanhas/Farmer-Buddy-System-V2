@@ -1,9 +1,12 @@
 import React from 'react'
+import { fetcher } from '@/lib/api';
 
 const Blog = () => {
   return (
-    <div>This is the Blog page</div>
+    <div>
+
+    </div>
   )
 }
 
-export default Blog
+export default Blog;
