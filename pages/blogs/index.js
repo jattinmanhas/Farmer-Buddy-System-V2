@@ -7,7 +7,7 @@ import ArticleList from '@/Components/Blog/ArticleList'
 import * as qs from 'qs'
 
 const Blogs = ({categories, articles}) => {
-
+  console.log(articles.data);
   return (
     <div>
       <Navbar/>
@@ -22,12 +22,12 @@ export default Blogs
 
 export const getServerSideProps = async() => {
   const options = {
-    populate: ['author.avatar'],
-    sort: ['id:asc'],
-
+    populate: "*",
+    sort: "id:desc",
   }
 
   const queryString = qs.stringify(options);
+  console.log(queryString)
 
   const categories = await fetchCategories();
   const articles = await fetchArticles(queryString);
