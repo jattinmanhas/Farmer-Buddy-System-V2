@@ -11,7 +11,7 @@ const BlogCard = ({ article }) => {
         <h1 className="text-xl font-bold hover:decoration-2 hover:underline hover:cursor-pointer hover:decoration-primary">
           {article.attributes.Title}
         </h1>
-      </Link>
+      
       <div className="flex items-center my-4">
         <span className="text-sm font-bold">
           {article.attributes.author.data.attributes.username} on &nbsp;
@@ -24,6 +24,7 @@ const BlogCard = ({ article }) => {
         {article.attributes.Body.slice(0, 250)}{" "}
         {article.attributes.Body.length > 250 ? "..." : ""}
       </div>
+      </Link>
     </div>
   );
 };
