@@ -23,7 +23,7 @@
     }
 
     .single-article blockquote {
-        @apply my-4 p-4 border-l-4 bg-gray-100 text-gray-500 border-primary;
+        @apply my-4 p-4 border-l-4 bg-gray-100 text-gray-500;
     }
 
 }

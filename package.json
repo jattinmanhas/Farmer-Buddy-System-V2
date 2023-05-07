@@ -19,6 +19,7 @@
     "eslint-config-next": "13.2.3",
     "framer-motion": "^10.2.3",
     "next": "13.2.3",
+    "next-mdx-remote": "^4.4.1",
     "nextjs-progressbar": "^0.0.16",
     "qs": "^6.11.1",
     "react": "18.2.0",

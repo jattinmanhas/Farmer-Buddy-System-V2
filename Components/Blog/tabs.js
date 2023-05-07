@@ -2,24 +2,21 @@ import React from 'react'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 
-const Tabs = ({categories}) => {
-    const { asPath } = useRouter();
-
-    const handleOnSearch = (e) =>{
-        console.log("handle search");
-    }
+const Tabs = ({categories, handleOnSearch}) => {
+    const router = useRouter();
+    const path = router.asPath.split("?")[0];
 
   return (
     <div className='w-11/12 m-auto my-8 flex items-center justify-between border-b-2'>
         <ul className='flex items-center'>
             <li className={'mr-6 pb-3 border-b-4 rounded-sm '+ `${
-                asPath == '/blogs' ? 'border-green-500 text-green-500':'border-white'
+                path == '/blogs' ? 'border-green-500 text-green-500':'border-white'
             }`}>
                 <Link href="/blogs">Recent</Link>
             </li>
             {categories.data.map(category => {
             return <li key={category.id} className={'mr-6 pb-3 border-b-4 rounded-sm '+ `${
-                asPath == `/blogs/category/${category.attributes.Slug}` ? 'border-green-500 text-green-500':''
+                path == `/blogs/category/${category.attributes.Slug}` ? 'border-green-500 text-green-500':''
             }`}>
                 <Link href={`/blogs/category/${category.attributes.Slug}`}>{category.attributes.Title}</Link>
             </li>
