@@ -1,6 +1,5 @@
 import React from 'react'
 import BlogCard from './BlogCard';
-import BlogCardWithImage from './BlogCardWithImage';
 
 const ArticleList = ({articles}) => {
   return (
@@ -8,11 +7,7 @@ const ArticleList = ({articles}) => {
         {articles.map((article, idx) => {
                 return (
                     <div key={article.id} className='border rounded p-4'>
-                        {idx === 1 ? (
-                            <BlogCardWithImage article={article} />
-                        ) : (
                             <BlogCard article={article} />
-                        )}
                     </div>
                 );
             })}

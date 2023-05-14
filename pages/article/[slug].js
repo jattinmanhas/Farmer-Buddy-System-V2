@@ -3,9 +3,10 @@ import * as qs from "qs";
 import React from 'react'
 import { MDXRemote } from 'next-mdx-remote';
 import Navbar from '@/Components/Navbar/Navbar';
+import markdownToHtml from '@/api';
+import Footer from '@/Components/Homepage/Footer/Footer';
 
-
-const slug = ({singleArticle, notfound = false}) => {
+const slug = ({singleArticle, notfound = false, bodyArticle}) => {
     return (
         <>
         <Navbar/>
@@ -38,8 +39,9 @@ const slug = ({singleArticle, notfound = false}) => {
                             src={`http://localhost:1337${singleArticle.attributes.Image.data.attributes.url}`}
                             alt={singleArticle.attributes.Title}
                         />
-                        
-                        {singleArticle.attributes.Body}
+                    </div>
+                    <div dangerouslySetInnerHTML={{__html: bodyArticle}}>
+
                     </div>
                 </div>
                 <div className="sticky top-0">
@@ -117,6 +119,8 @@ const slug = ({singleArticle, notfound = false}) => {
                     <hr className="my-6 border-gray-100" />
                 </div>
             </div>
+
+            <Footer/>
         </>
     );
 }
@@ -137,9 +141,13 @@ export const getServerSideProps = async({query}) =>{
             notFound: true,
         };
     }
+    const bodyArticle = await markdownToHtml(singleArticle.data[0].attributes.Body);
+
+
     return{
         props: {
-            singleArticle: await serializeMarkdown(singleArticle.data[0])
+            singleArticle: singleArticle.data[0],
+            bodyArticle
         }
     }
 }

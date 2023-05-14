@@ -1,5 +1,8 @@
 import axios from "axios";
 import { serialize } from 'next-mdx-remote/serialize';
+import {remark} from 'remark'
+import html from 'remark-html'
+
 
 export const fetchCategories = async () => {
   try {
@@ -86,3 +89,8 @@ export const serializeMarkdown = async (item) => {
       },
   };
 };
+
+export default async function markdownToHtml(markdown) {
+  const result = await remark().use(html).process(markdown)
+  return result.toString()
+}
